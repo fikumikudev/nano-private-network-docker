@@ -1,0 +1,46 @@
+version: '3.8'
+
+networks:
+  nano:
+    name: nano-private-network
+    
+services:
+  node-main:
+    image: nano-node:latest
+    container_name: node-main
+    restart: unless-stopped
+    networks:
+      - nano
+    ports:
+     - 17075:17075
+     - 17076:17076
+     - 17077:17077
+     - 17078:17078
+    expose:
+    - 17075
+    - 17076
+    - 17077
+    - 17078
+    environment:
+      - NANO_TEST_PEER_NETWORK=0
+    env_file: node.env
+    tmpfs: /root
+    command: nano_node daemon ${NODE_CLI_OPTIONS} --config node.peering_port=17075 -l
+
+  node:
+    image: nano-node:latest
+    depends_on:
+      - "node-main"
+    restart: unless-stopped
+    networks:
+      - nano
+    expose:
+    - 17075
+    - 17076
+    - 17077
+    - 17078
+    environment:
+      - NANO_TEST_PEER_NETWORK=node-main
+    env_file: node.env
+    tmpfs: /root
+    command: nano_node daemon ${NODE_CLI_OPTIONS} -l
