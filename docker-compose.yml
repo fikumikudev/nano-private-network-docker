@@ -25,6 +25,9 @@ services:
       - NANO_TEST_PEER_NETWORK=0
     env_file: node.env
     tmpfs: /root
+    volumes:
+      - ./nano-node/config-node.toml:/root/Nano/config-node.toml
+      - ./nano-node/config-rpc.toml:/root/Nano/config-rpc.toml
     command: nano_node daemon ${NODE_CLI_OPTIONS} --config node.peering_port=17075 -l
 
   node:
@@ -43,4 +46,7 @@ services:
       - NANO_TEST_PEER_NETWORK=node-main
     env_file: node.env
     tmpfs: /root
+    volumes:
+      - ./nano-node/config-node.toml:/root/Nano/config-node.toml
+      - ./nano-node/config-rpc.toml:/root/Nano/config-rpc.toml
     command: nano_node daemon ${NODE_CLI_OPTIONS} -l
