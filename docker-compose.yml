@@ -6,7 +6,7 @@ networks:
     
 services:
   node-main:
-    image: nano-node:latest
+    image: nano-node
     container_name: node-main
     restart: unless-stopped
     networks:
@@ -26,12 +26,12 @@ services:
     env_file: node.env
     tmpfs: /root
     volumes:
-      - ./nano-node/config-node.toml:/root/Nano/config-node.toml
-      - ./nano-node/config-rpc.toml:/root/Nano/config-rpc.toml
+      - ./node-config/config-node.toml:/root/Nano/config-node.toml
+      - ./node-config/config-rpc.toml:/root/Nano/config-rpc.toml
     command: nano_node daemon ${NODE_CLI_OPTIONS} --config node.peering_port=17075 -l
 
   node:
-    image: nano-node:latest
+    image: nano-node
     depends_on:
       - "node-main"
     restart: unless-stopped
@@ -47,6 +47,6 @@ services:
     env_file: node.env
     tmpfs: /root
     volumes:
-      - ./nano-node/config-node.toml:/root/Nano/config-node.toml
-      - ./nano-node/config-rpc.toml:/root/Nano/config-rpc.toml
+      - ./node-config/config-node.toml:/root/Nano/config-node.toml
+      - ./node-config/config-rpc.toml:/root/Nano/config-rpc.toml
     command: nano_node daemon ${NODE_CLI_OPTIONS} -l

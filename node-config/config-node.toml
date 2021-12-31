@@ -25,7 +25,7 @@
 
 # Enable or disable local host peering.
 # type:bool
-#allow_local_peers = false
+allow_local_peers = true
 
 # Backup the ledger database before performing upgrades.
 # Warning: uses more disk storage and increases startup time when upgrading.
@@ -86,7 +86,7 @@
 
 # Enable or disable voting. Enabling this option requires additional system resources, namely increased CPU, bandwidth and disk usage.
 # type:bool
-#enable_voting = false
+enable_voting = true
 
 # The external address of this node (NAT). If not set, the node will request this information via UPnP.
 # type:string,ip
@@ -361,7 +361,7 @@ network_message = true
 
 # Log node-id handshake related messages.
 # type:bool
-network_node_id_handshake = true
+#network_node_id_handshake = true
 
 # Log network packet activity.
 # type:bool
