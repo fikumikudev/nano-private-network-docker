@@ -6,7 +6,7 @@ networks:
     
 services:
   node-main:
-    image: nano-node
+    image: ${NODE_IMAGE:-nano-node}
     container_name: node-main
     restart: unless-stopped
     networks:
@@ -31,7 +31,7 @@ services:
     command: nano_node daemon ${NODE_CLI_OPTIONS} --config node.peering_port=17075 -l
 
   node:
-    image: nano-node
+    image: ${NODE_IMAGE:-nano-node}
     depends_on:
       - "node-main"
     restart: unless-stopped
