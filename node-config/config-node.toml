@@ -36,6 +36,7 @@ allow_local_peers = true
 # Note: changing to unlimited bandwidth (0) is not recommended for limited connections.
 # type:uint64
 #bandwidth_limit = 10485760
+bandwidth_limit = 0
 
 # Burst ratio for outbound traffic shaping.
 # type:double
@@ -303,7 +304,7 @@ enable_voting = true
 
 # Log election tally on expiration.
 # type:bool
-election_expiration = true
+#election_expiration = true
 
 # Log election tally when more than one block is seen.
 # type:bool
@@ -316,11 +317,11 @@ election_expiration = true
 
 # Log if insufficient work is detected.
 # type:bool
-#insufficient_work = true
+insufficient_work = false
 
 # Log ledger related messages.
 # type:bool
-ledger = true
+#ledger = true
 
 # Log when a duplicate block is attempted inserted into the ledger.
 # type:bool
@@ -349,15 +350,15 @@ ledger = true
 
 # Log network related messages.
 # type:bool
-network = true
+#network = true
 
 # Log keepalive related messages.
 # type:bool
-network_keepalive = true
+#network_keepalive = true
 
 # Log network errors and message details.
 # type:bool
-network_message = true
+#network_message = true
 
 # Log node-id handshake related messages.
 # type:bool
@@ -369,11 +370,11 @@ network_message = true
 
 # Log publish related network messages.
 # type:bool
-network_publish = true
+#network_publish = true
 
 # Log message when a connection is rejected.
 # type:bool
-network_rejected = true
+#network_rejected = true
 
 # Log telemetry related messages.
 # type:bool
@@ -381,7 +382,7 @@ network_rejected = true
 
 # Log TCP timeouts.
 # type:bool
-network_timeout = true
+#network_timeout = true
 
 # Log node startup and shutdown messages.
 # type:bool
@@ -417,7 +418,7 @@ network_timeout = true
 
 # Log work generation timing information.
 # type:bool
-#work_generation_time = true
+work_generation_time = false
 
 [node.rocksdb]
 
