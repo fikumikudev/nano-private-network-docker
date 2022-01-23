@@ -22,6 +22,7 @@ services:
     - 17077
     - 17078
     environment:
+      - NANO_DEFAULT_PEER=0
       - NANO_TEST_PEER_NETWORK=0
     env_file: node.env
     tmpfs: /root
@@ -43,6 +44,7 @@ services:
     - 17077
     - 17078
     environment:
+      - NANO_DEFAULT_PEER=node-main
       - NANO_TEST_PEER_NETWORK=node-main
     env_file: node.env
     tmpfs: /root
