@@ -1,7 +1,11 @@
+Simulate P2P Nano network with Docker
+
 USAGE:
 
-docker-compose up --scale node=10
+To create a new network with 1 origin and 10 work nodes:
 
-or with custom node image:
+docker-compose up --scale node=10 
+
+or with custom node image tag:
 
 NODE_IMAGE=custom-node docker-compose up --scale node=10
